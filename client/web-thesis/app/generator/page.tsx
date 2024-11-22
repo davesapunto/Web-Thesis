@@ -202,7 +202,7 @@ export default function ScheduleGenerator() {
                                 <ScheduleTable schedule={scheduleData.psoSchedule} />
                             </div>
                         ) : (
-                            <p>No schedule generated yet. Fill out the form and click "Generate Schedule" to see results.</p>
+                            <p>No schedule generated yet. Fill out the form and click {"Generate Schedule"} to see results.</p>
                         )}
                     </div>
                 </div>
