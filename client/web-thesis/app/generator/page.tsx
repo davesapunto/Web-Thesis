@@ -116,12 +116,8 @@ export default function ScheduleGenerator() {
     if (loading) {
         return(
             <main className = "w-screen h-screen flex justify-center items-center">
-                <div>
-                    <button type="button" className="text-center" disabled>
-                        <svg className="animate-pulse h-10 w-28 mr-3" viewBox="0 0 24 24">
-                        </svg>
+                <div className = "animate-pulse h-10 w-28 mr-3">
                     Loading...
-                    </button>
                 </div>
             </main>
         )
