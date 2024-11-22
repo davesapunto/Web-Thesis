@@ -117,7 +117,7 @@ export default function ScheduleGenerator() {
         return(
             <main className = "w-screen h-screen flex justify-center items-center">
                 <div className = "animate-pulse h-10 w-28 mr-3">
-                    Loading...
+                    Loading&qout;...
                 </div>
             </main>
         )
