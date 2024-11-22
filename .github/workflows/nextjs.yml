@@ -1,11 +1,9 @@
 name: Next.js CI/CD
-
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -13,7 +11,6 @@ jobs:
     defaults:
       run:
         working-directory: ./client/web-thesis  # Specify the directory containing your Next.js project
-
     steps:
     - uses: actions/checkout@v4
     
@@ -34,7 +31,7 @@ jobs:
       
     - name: Export Static Files
       working-directory: ./client/web-thesis
-      run: npm run build
+      run: npm run export  # Use export instead of build
       
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
