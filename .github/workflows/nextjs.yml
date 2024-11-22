@@ -10,7 +10,8 @@ jobs:
     
     defaults:
       run:
-        working-directory: ./client/web-thesis  # Specify the directory containing your Next.js project
+        working-directory: ./client/web-thesis
+    
     steps:
     - uses: actions/checkout@v4
     
@@ -21,22 +22,28 @@ jobs:
         cache: 'npm'
         cache-dependency-path: './client/web-thesis/package.json'
     
+    - name: Cache Next.js build
+      uses: actions/cache@v4
+      with:
+        path: |
+          ${{ github.workspace }}/client/web-thesis/.next/cache
+        key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-nextjs-
+    
     - name: Install Dependencies
-      working-directory: ./client/web-thesis
-      run: npm install
+      run: npm ci
       
     - name: Build
-      working-directory: ./client/web-thesis
       run: npm run build
       
-    - name: Export Static Files
-      working-directory: ./client/web-thesis
-      run: npm run export  # Use export instead of build
+    - name: Export
+      run: npm run export
       
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        path: ./client/web-thesis/out
+        path: ./out
         
   deploy:
     needs: build
