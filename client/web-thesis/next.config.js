@@ -7,4 +7,4 @@ const nextConfig = {
   basePath: '/Web-Thesis', // Replace with your repository name
 }
 
-module.exports = nextConfig
+export default nextConfig
