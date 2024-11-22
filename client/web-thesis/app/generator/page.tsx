@@ -157,7 +157,7 @@ export default function ScheduleGenerator() {
                                 <input
                                     type="text"
                                     className="border border-gray-300 rounded p-2 w-full"
-                                    placeholder="1"
+                                    placeholder={'1'}
                                     value={semesterYear}
                                     onChange={(e) => setSemesterYear(e.target.value)}
                                 />
