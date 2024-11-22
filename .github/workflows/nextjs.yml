@@ -37,13 +37,17 @@ jobs:
     - name: Build
       run: npm run build
       
-    - name: Export
-      run: npm run export
+    - name: Prepare GitHub Pages
+      run: |
+        touch ./out/.nojekyll
+        if [ ! -f ./out/index.html ]; then
+          echo "<!DOCTYPE html><html><body>Site is under construction</body></html>" > ./out/index.html
+        fi
       
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        path: ./out
+        path: ./client/web-thesis/out
         
   deploy:
     needs: build
